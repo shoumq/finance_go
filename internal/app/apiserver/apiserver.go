@@ -2,6 +2,7 @@ package apiserver
 
 import (
 	"io"
+	"micros/internal/app/model"
 	"micros/internal/app/store"
 	"net/http"
 
@@ -69,6 +70,10 @@ func (s *APIServer) configureStore() error {
 
 func (s *APIServer) handleHello() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		s.store.User().Create(&model.User{
+			Email:    "lae345@mail.ru",
+			Password: "password",
+		})
 		io.WriteString(w, "Hello")
 	}
 }
