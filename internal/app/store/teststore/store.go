@@ -1,7 +1,7 @@
 package teststore
 
 import (
-	"database/sql"
+	"micros/internal/app/model"
 	"micros/internal/app/store"
 )
 
@@ -9,10 +9,8 @@ type Store struct {
 	userRepository *UserRepository
 }
 
-func New(db *sql.DB) *Store {
-	return &Store{
-		db: db,
-	}
+func New() *Store {
+	return &Store{}
 }
 
 func (s *Store) User() store.UserRepository {
@@ -22,6 +20,7 @@ func (s *Store) User() store.UserRepository {
 
 	s.userRepository = &UserRepository{
 		store: s,
+		users: make(map[string]*model.User),
 	}
 
 	return s.userRepository
