@@ -2,6 +2,7 @@ package sqlstore_test
 
 import (
 	"micros/internal/app/model"
+	"micros/internal/app/store"
 	"micros/internal/app/store/sqlstore"
 	"testing"
 
@@ -23,9 +24,9 @@ func TestUserRepositiry_FindByEmail(t *testing.T) {
 	defer teardown("users")
 
 	s := sqlstore.New(db)
-	email := "user@example.org"
+	email := "user41@example.org"
 	_, err := s.User().FindByEmail(email)
-	assert.NoError(t, err)
+	assert.EqualError(t, err, store.ErrRecordNotFound.Error())
 
 	u := model.TestUser(t)
 	u.Email = email
