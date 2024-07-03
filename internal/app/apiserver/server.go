@@ -50,6 +50,9 @@ func newServer(store store.Store, sessionStore sessions.Store) *server {
 }
 
 func (s *server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+	w.Header().Set("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, PATCH, DELETE")
 	s.router.ServeHTTP(w, r)
 }
 
