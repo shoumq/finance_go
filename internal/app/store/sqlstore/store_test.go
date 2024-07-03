@@ -12,7 +12,7 @@ var (
 func TestMain(m *testing.M) {
 	DatabaseURL = os.Getenv("DATABASE_URL")
 	if DatabaseURL == "" {
-		DatabaseURL = "user=postgres port=5433 password=Andrew1095 dbname=finbase_test sslmode=disable"
+		DatabaseURL = "user=postgres port=5432 password=Andrew1095 dbname=finbase sslmode=disable"
 	}
 
 	os.Exit(m.Run())
