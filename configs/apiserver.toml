@@ -1,4 +1,4 @@
-bind_addr = ":80"
+bind_addr = ":8089"
 log_level = "debug"
 database_url = "user=postgres port=5432 password=Andrew1095 dbname=finbase sslmode=disable"
 session_key = "ue6wilkkvqRYlZQkCyYxqajgeDjSg43sVDSjFyZjZ1e3urMh6D3lL2PKCq1W1ADEJGcNzb0oDdDkpXmZ3Lxxc5u24eLYL7ahCBLsD3SraCcO6eiyqAJcIfp9qmWlwpFj"
